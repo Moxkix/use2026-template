@@ -1,0 +1,36 @@
+{
+  "__nota__": "DATOS DE EJEMPLO. Sustituidos automaticamente al publicar desde la PWA del coordinador. No edites a mano. Las claves con guion bajo no se muestran (el codigo debe ser A-Z0-9, 2-12 caracteres).",
+  "DEMO01": {
+    "asignatura_es": "Lengua Castellana y Literatura II (EJEMPLO)",
+    "asignatura_eu": "Gaztelania eta Literatura II (ADIBIDEA)",
+    "aula_es": "0.0 — Planta de ejemplo",
+    "aula_eu": "0.0 — Adibide solairua",
+    "dia_es": "Martes 2 jun",
+    "dia_eu": "Asteartea, ekainak 2",
+    "fecha": "2026-06-02",
+    "hora_inicio": "09:00",
+    "hora_fin": "10:30"
+  },
+  "DEMO02": {
+    "asignatura_es": "Historia de España (EJEMPLO)",
+    "asignatura_eu": "Espainiako Historia (ADIBIDEA)",
+    "aula_es": "0.1 — Planta de ejemplo",
+    "aula_eu": "0.1 — Adibide solairua",
+    "dia_es": "Miércoles 3 jun",
+    "dia_eu": "Asteazkena, ekainak 3",
+    "fecha": "2026-06-03",
+    "hora_inicio": "09:00",
+    "hora_fin": "10:30"
+  },
+  "DEMO03": {
+    "asignatura_es": "Inglés (EJEMPLO)",
+    "asignatura_eu": "Ingelesa (ADIBIDEA)",
+    "aula_es": "0.2 — Planta de ejemplo",
+    "aula_eu": "0.2 — Adibide solairua",
+    "dia_es": "Jueves 4 jun",
+    "dia_eu": "Osteguna, ekainak 4",
+    "fecha": "2026-06-04",
+    "hora_inicio": "11:45",
+    "hora_fin": "13:15"
+  }
+}
