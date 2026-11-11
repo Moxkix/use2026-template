@@ -2,7 +2,10 @@
 //
 // Versión Material 3 mobile-first (2026).
 // - Lee ?codigos=A,B,C de la URL (o ?codigo=A para legacy) y muestra los resultados.
-// - Búsqueda manual por input.
+// - Búsqueda manual por input: con UN código cualquiera del alumno se muestran
+//   TODAS sus aulas (el JSON enlaza los códigos del mismo alumno con un
+//   identificador opaco `g`, sin datos personales). Modelo de hoja de códigos
+//   de GAUR con QR genérico.
 // - Bottom nav: Bilatu / Informazioa / Laguntza.
 // - Beacon anónimo a Cloudflare Worker (HLL, sin PII, sin body).
 // - Renderizado 100% vía DOM API + textContent: el contenido dinámico
@@ -224,6 +227,20 @@ async function mostrarResultados(codigos) {
       const entry = data[cod];
       if (entry) encontrados.push({ codigo: cod, entry });
       else noEncontrados.push(codBruto);
+    }
+
+    // Expandir por grupo: todas las entradas del mismo alumno (`g`), para que
+    // con un solo código se vean todas sus aulas. Las entradas sin `g` (JSON
+    // antiguo) se muestran tal cual.
+    const grupos = new Set(encontrados.map((e) => e.entry.g).filter(Boolean));
+    if (grupos.size > 0) {
+      const ya = new Set(encontrados.map((e) => e.codigo));
+      for (const [cod, entry] of Object.entries(data)) {
+        if (!entry || !entry.g || !grupos.has(entry.g) || ya.has(cod)) continue;
+        if (!REGEX_CODIGO.test(cod)) continue;
+        encontrados.push({ codigo: cod, entry });
+        ya.add(cod);
+      }
     }
 
     encontrados.sort((a, b) => {
